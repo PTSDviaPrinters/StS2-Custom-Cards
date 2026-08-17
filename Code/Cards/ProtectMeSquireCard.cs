@@ -14,7 +14,6 @@ namespace Sts2CustomCards.Cards;
 /// Protect Me Squire! — 0-cost Colorless multiplayer Skill.
 /// Deal 15 damage to a teammate, then gain 15 Block.
 /// Upgrade: gains Innate (starts in your opening hand).
-/// A drinking-game card: whoever casts it takes a shot.
 /// </summary>
 public sealed class ProtectMeSquireCard : CardModel
 {

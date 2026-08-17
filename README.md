@@ -6,7 +6,7 @@ Custom card collection for Slay the Spire 2 — C# mod, built against the vanill
 
 | Card | Cost | Rarity | Pool | Effect |
 |---|---|---|---|---|
-| **Protect Me Squire!** | 0 | Uncommon | Colorless | Multiplayer-only. Deal 15 damage to a teammate, then gain 15 Block. Upgrade: Innate. Drinking-game card. |
+| **Protect Me Squire!** | 0 | Uncommon | Colorless | Multiplayer-only. Deal 15 damage to a teammate, then gain 15 Block. Upgrade: Innate. |
 
 ## Requirements
 - Slay the Spire 2 (tested on v0.111.0)
