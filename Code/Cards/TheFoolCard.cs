@@ -12,9 +12,9 @@ using MegaCrit.Sts2.Core.Models;
 namespace Sts2CustomCards.Cards;
 
 /// <summary>
-/// The Fool — 1-cost Colorless Rare Skill.
+/// The Fool — 2-cost Colorless Rare Skill.
 /// Base:     Exhaust. Play the last card you played again.
-/// Upgraded: Exhaust. Play the last card played by anyone again.
+/// Upgraded: Exhaust. Play the last card you played again, then gain 1 Energy.
 /// Uses CardCmd.AutoPlay (same engine command as vanilla Decisions/Decisions).
 /// </summary>
 public sealed class TheFoolCard : CardModel
@@ -24,7 +24,7 @@ public sealed class TheFoolCard : CardModel
 
     public TheFoolCard()
         : base(
-            canonicalEnergyCost: 1,
+            canonicalEnergyCost: 2,
             type: CardType.Skill,
             rarity: CardRarity.Rare,
             targetType: TargetType.Self)
@@ -42,24 +42,27 @@ public sealed class TheFoolCard : CardModel
             if (entry.CardPlay.Card == this)
                 continue;
 
-            if (IsUpgraded || entry.CardPlay.Player == Owner)
-            {
-                last = entry;
-                break;
-            }
+            last = entry;
+            break;
         }
 
-        if (last == null || last.CardPlay.Card.Keywords.Contains(CardKeyword.Unplayable))
-            return;
+        if (last != null &&
+            !last.CardPlay.Card.Keywords.Contains(CardKeyword.Unplayable))
+        {
+            await CardCmd.AutoPlay(
+                choiceContext,
+                last.CardPlay.Card,
+                last.CardPlay.Target);
+        }
 
-        await CardCmd.AutoPlay(
-            choiceContext,
-            last.CardPlay.Card,
-            last.CardPlay.Target);
+        // Upgrade: one Energy back.
+        if (IsUpgraded)
+            await PlayerCmd.GainEnergy(1, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        // No stat change — the upgrade extends reach to ANY player's last card.
+        // Not shown in the damage ladder — the card set still runs the 15/15, 20/20 ladder.
+        // The upgrade's payoff is the energy refund, no variable change.
     }
 }

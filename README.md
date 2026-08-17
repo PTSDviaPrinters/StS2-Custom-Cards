@@ -7,6 +7,7 @@ Custom card collection for Slay the Spire 2 — C# mod, built against the vanill
 | Card | Cost | Rarity | Pool | Effect |
 |---|---|---|---|---|
 | **Protect Me Squire!** | 0 | Uncommon | Colorless | Multiplayer-only. Deal 15 damage to a teammate, then gain 15 Block. Upgrade: Innate. |
+| **The Fool** | 2 | Rare | Colorless | Exhaust. Play the last card you played again. Upgrade: also gain 1 Energy. |
 
 ## Requirements
 - Slay the Spire 2 (tested on v0.111.0)

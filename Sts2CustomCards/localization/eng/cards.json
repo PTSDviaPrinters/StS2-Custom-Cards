@@ -4,6 +4,6 @@
   "PROTECT_ME_SQUIRE_CARD.flavor": "",
   "THE_FOOL_CARD.title": "The Fool",
   "THE_FOOL_CARD.description": "Exhaust.\nPlay the last card you played again.",
-  "THE_FOOL_CARD.upgrade.description": "Exhaust.\nPlay the last card played by anyone again.",
+  "THE_FOOL_CARD.upgrade.description": "Exhaust.\nPlay the last card you played again.\nGain 1 [gold]Energy[/gold].",
   "THE_FOOL_CARD.flavor": "The cards are a mirror. Laugh, and they laugh back."
 }
