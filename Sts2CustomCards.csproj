@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Sts2CustomCards</AssemblyName>
+    <RootNamespace>Sts2CustomCards</RootNamespace>
+    <Nullable>enable</Nullable>
+    <LangVersion>12.0</LangVersion>
+    <!-- STS2 install path. Override: dotnet build -p:Sts2GameDir="..." -->
+    <Sts2GameDir Condition="'$(Sts2GameDir)' == ''">M:\SteamLibrary\steamapps\common\Slay the Spire 2</Sts2GameDir>
+    <Sts2DataDir>$(Sts2GameDir)/data_sts2_windows_x86_64</Sts2DataDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="sts2">
+      <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="GodotSharp">
+      <HintPath>$(Sts2DataDir)/GodotSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Packs Sts2CustomCards/ (localization, images) into a .pck at build time. -->
+    <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Target Name="CopyToModsOnBuild" AfterTargets="PostBuildEvent">
+    <Message Text="Copying Sts2CustomCards to mods folder." Importance="high"/>
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)Sts2CustomCards/"/>
+    <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)Sts2CustomCards/"/>
+  </Target>
+
+  <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
+    <Message Text="Copying quick .pck to mods folder." Importance="high"/>
+    <Copy SourceFiles="$(PckPackerOutputPath)" DestinationFolder="$(ModsPath)Sts2CustomCards/"/>
+  </Target>
+</Project>

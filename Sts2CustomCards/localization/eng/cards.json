@@ -1,0 +1,5 @@
+{
+  "PROTECT_ME_SQUIRE_CARD.title": "Protect Me Squire!",
+  "PROTECT_ME_SQUIRE_CARD.description": "Deal {Damage} [gold]damage[/gold] to a teammate.\nGain {Block:diff()} [gold]Block[/gold].",
+  "PROTECT_ME_SQUIRE_CARD.flavor": "House rule: bam, take a shot."
+}

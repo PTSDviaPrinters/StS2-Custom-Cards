@@ -1,0 +1,10 @@
+{
+  "id": "Sts2CustomCards",
+  "name": "StS2 Custom Cards",
+  "author": "Toby",
+  "description": "Custom card collection for Slay the Spire 2 — including the multiplayer drinking-game card 'Protect Me Squire!'.",
+  "version": "0.1.0",
+  "has_pck": true,
+  "has_dll": true,
+  "affects_gameplay": true
+}
