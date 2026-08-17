@@ -17,13 +17,18 @@ namespace Sts2CustomCards.Cards;
 /// </summary>
 public sealed class ProtectMeSquireCard : CardModel
 {
+    public const decimal TakeDamage = 15m;
+
     public override CardMultiplayerConstraint MultiplayerConstraint =>
         CardMultiplayerConstraint.MultiplayerOnly;
 
+    public override string PortraitPath =>
+        "res://Sts2CustomCards/images/cards/protect_me_squire.png";
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(15m, ValueProp.Unpowered),
-        new BlockVar(15m, ValueProp.Move)
+        new DamageVar(TakeDamage, ValueProp.Unpowered),
+        new BlockVar(TakeDamage, ValueProp.Move)
     ];
 
     public ProtectMeSquireCard()
