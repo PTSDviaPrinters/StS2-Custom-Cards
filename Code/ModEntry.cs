@@ -13,5 +13,6 @@ public static class ModEntry
     public static void Initialize()
     {
         ModHelper.AddModelToPool<ColorlessCardPool, Cards.ProtectMeSquireCard>();
+        ModHelper.AddModelToPool<ColorlessCardPool, Cards.TheFoolCard>();
     }
 }

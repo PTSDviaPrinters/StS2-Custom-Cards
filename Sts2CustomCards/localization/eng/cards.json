@@ -1,5 +1,9 @@
 {
   "PROTECT_ME_SQUIRE_CARD.title": "Protect Me Squire!",
   "PROTECT_ME_SQUIRE_CARD.description": "Deal {Damage} [gold]damage[/gold] to a teammate.\nGain {Block} [gold]Block[/gold].",
-  "PROTECT_ME_SQUIRE_CARD.flavor": ""
+  "PROTECT_ME_SQUIRE_CARD.flavor": "",
+  "THE_FOOL_CARD.title": "The Fool",
+  "THE_FOOL_CARD.description": "Exhaust.\nPlay the last card you played again.",
+  "THE_FOOL_CARD.upgrade.description": "Exhaust.\nPlay the last card played by anyone again.",
+  "THE_FOOL_CARD.flavor": "The cards are a mirror. Laugh, and they laugh back."
 }
